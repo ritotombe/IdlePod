@@ -74,7 +74,7 @@ class Scroller extends Component {
 
       let factor = ((0.2-this.state.scrollPos)/0.2)*(733.2-689.59)
       let landingDownArrow = this.state.landingDownArrow
-      if (factor < (733.2-689.59)){
+      if (factor <= (733.2-689.59)){
         landingDownArrow[1] = (parseFloat(689.59) + factor).toString()
         landingDownArrow[5] = (parseFloat(689.59) + factor).toString()
       }

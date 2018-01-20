@@ -13,7 +13,7 @@ export default class App extends Component {
       <SVGInline className="landing-logo" svg={ IDLE_POD_ICON } />
       <Scroller />
       <Link to='/q1' id="finish-landing" className="btn btn-default">
-         Find Out YOUR Procrastination Level
+         check your procrastination  <br/>level here
       </Link>
     </div>
     );
