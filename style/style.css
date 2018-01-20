@@ -238,8 +238,9 @@
 
 
 body {
-    font-family: Avenir Next-DemiBold , Avenir Next !important;
+    font-family: Avenir Next !important;
     background: #f1bf4e !important;
+    font-weight: 600;
 }
 
 .container,  .container>div, .container>div>div{
