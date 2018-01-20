@@ -74,8 +74,11 @@ class Scroller extends Component {
 
       let factor = ((0.2-this.state.scrollPos)/0.2)*(733.2-689.59)
       let landingDownArrow = this.state.landingDownArrow
-      landingDownArrow[1] = (parseFloat(689.59) + factor).toString()
-      landingDownArrow[5] = (parseFloat(689.59) + factor).toString()
+      if (parseFloat(landingDownArrow[1]) < 733.2){
+        landingDownArrow[1] = (parseFloat(689.59) + factor).toString()
+        landingDownArrow[5] = (parseFloat(689.59) + factor).toString()
+      }
+
 
       this.state.logoSvg
         .querySelector("#landing-arrow")
