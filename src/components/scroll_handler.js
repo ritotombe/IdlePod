@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
 
 class Scroller extends Component {
 
@@ -100,9 +99,6 @@ class Scroller extends Component {
         div => {this.myDiv = div;}
        }
        id="scroller">
-         <Link to='/q1' id="finish-landing" className="btn btn-default">
-            Move to Questionnaire
-         </Link>
        </div>
     )
   }

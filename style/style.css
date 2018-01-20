@@ -217,10 +217,13 @@
 }
 
 #finish-landing {
-  position: absolute;
+  /* position: absolute; */
   left:0;
   right: 0;
+  bottom:0;
   margin: auto;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 
@@ -229,11 +232,13 @@ body {
     background: #f1bf4e !important;
 }
 
-.container {
+.container,  .container>div, .container>div>div{
   max-height: 100vh;
   overflow-y: scroll;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
 }
 
-.container::-webkit-scrollbar { width: 0 !important }
+.container::-webkit-scrollbar, .container>div::-webkit-scrollbar, .container>div>div::-webkit-scrollbar{
+   width: 0 !important
+ }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SVGInline from "react-svg-inline"
+import {Link} from 'react-router-dom'
 
 import {IDLE_POD_ICON} from "../../images/idle_pod.js"
 
@@ -8,10 +9,12 @@ import Scroller from "./scroll_handler.js"
 export default class App extends Component {
   render() {
     return (
-    <div>
-
+    <div className="inner">
       <SVGInline className="landing-logo" svg={ IDLE_POD_ICON } />
       <Scroller />
+      <Link to='/q1' id="finish-landing" className="btn btn-default">
+         Move to Questionnaire
+      </Link>
     </div>
     );
   }
