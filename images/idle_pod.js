@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const IDLE_POD_ICON = `<svg class="SVGInline-svg landing-logo-svg" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="-195 -100 700 700.58">
+export const IDLE_POD_ICON = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318.05 519.58">
   <title>IdlePod</title>
   <path class="cls-1" d="M943.6,612.94" transform="translate(-834.59 -306.34)"/>
   <text class="cls-2" transform="translate(24.31 486.53)">Idle<tspan class="cls-3" x="126.57" y="0">P</tspan><tspan x="165.81" y="0">od</tspan></text>

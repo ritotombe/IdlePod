@@ -184,7 +184,7 @@
 }
 
 .landing-logo svg{
-  width: 70% !important;
+  width: 40% !important;
   position: absolute;
   margin: auto;
   top: 0;
@@ -192,19 +192,27 @@
   bottom: 0;
   right: 0;
   padding:0;
+  overflow: visible !important;
 }
 
 @media only screen and (min-width: 768px) {
     /* For desktop: */
     .landing-logo svg{
-      width: 40% !important;
+      width: 30% !important;
     }
 }
 
 @media only screen and (min-width: 1024px) {
     /* For desktop: */
     .landing-logo svg{
-      width: 30% !important;
+      width: 20% !important;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    /* For desktop: */
+    .landing-logo svg{
+      width: 10% !important;
     }
 }
 
