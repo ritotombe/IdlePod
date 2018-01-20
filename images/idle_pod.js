@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const IDLE_POD_ICON = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318.05 519.58">
+export const IDLE_POD_ICON = `<svg class="SVGInline-svg landing-logo-svg" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="-195 -100 700 700.58">
   <title>IdlePod</title>
   <path class="cls-1" d="M943.6,612.94" transform="translate(-834.59 -306.34)"/>
   <text class="cls-2" transform="translate(24.31 486.53)">Idle<tspan class="cls-3" x="126.57" y="0">P</tspan><tspan x="165.81" y="0">od</tspan></text>
@@ -17,7 +17,9 @@ export const IDLE_POD_ICON = `<svg id="Layer_1" data-name="Layer 1" xmlns="http:
 	  <text class="cls-10" transform="translate(132.67 36.89)"><tspan class="cls-12">Y</tspan><tspan x="22.85" y="0">our</tspan></text>
 	  <line class="cls-15" x1="124.74" y1="69.39" x2="124.74" y2="128.79"/>
 	</g>
-  <text class="cls-13" transform="translate(231.75 -53)"><tspan class="cls-14">P</tspan><tspan y="0" x="25.49">od</tspan></text>
+  <g class="cls-13" transform="translate(231.75 -53)">
+    <text><tspan class="cls-14">P</tspan><tspan y="0" x="25.49">od</tspan></text>
+  </g>
   <line class="cls-21" x1="177.71" y1="60" x2="108.26" y2="-40"></line>
   <text class="cls-10 definition" transform="translate(50.85 -55)">(n.) - a p<tspan class="cls-16" x="162.22" y="0">r</tspan><tspan x="177.16" y="0">oc</tspan><tspan class="cls-17" x="224.6" y="0">r</tspan><tspan x="239.76" y="0">astin</tspan><tspan class="cls-18" x="334.11" y="0">a</tspan><tspan x="357.44" y="0">ting </tspan><tspan x="0" y="51.84">mind &amp; body th</tspan><tspan class="cls-18" x="310.22" y="51.84">a</tspan><tspan x="333.55" y="51.84">t</tspan><tspan x="0" y="103.68">hinder people f</tspan><tspan class="cls-19" x="307.67" y="103.68">r</tspan><tspan x="322.62" y="103.68">om</tspan><tspan x="0" y="155.52">their full potential</tspan><tspan class="cls-20" x="355.84" y="155.52">.</tspan></text>
   <g class = "translate-down-landing-arrow" id="landing-arrow" transform="translate(50 30)">

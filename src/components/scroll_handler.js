@@ -60,11 +60,13 @@ class Scroller extends Component {
       this.state.logoSvg.querySelector(".cls-13").style.opacity = 1
       this.state.logoSvg.querySelector(".cls-21").style.opacity = 1
       this.state.logoSvg.querySelector(".cls-21").classList.add("line-animation")
+      this.state.logoSvg.querySelector(".cls-13").classList.remove("translate-left-100")
+      this.state.logoSvg.querySelector(".cls-13").setAttribute("transform", "translate(231.75 -53)")
     } else {
       this.state.logoSvg.querySelector(".this-is-your-pod").style.opacity = 0
       this.state.logoSvg.querySelector(".cls-13").style.opacity = 0
       this.state.logoSvg.querySelector(".cls-21").style.opacity = 0
-      this.state.logoSvg.querySelector(".cls-13").classList.remove("translate-left-100")
+
     }
 
     if (this.state.scrollPos < 0.2){

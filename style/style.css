@@ -11,7 +11,7 @@
   stroke-linejoin: round;
 }
 
-.cls-2, text {
+.cls-2 {
   font-size: 72px;
   font-family: AvenirNext-DemiBold, Avenir Next;
   font-weight: 700;
@@ -67,6 +67,7 @@
 }
 
 .translate-left-100 {
+  transform: translate(231.75px, -53px);
   -webkit-animation: left-100 0.5s linear forwards;
    -moz-animation: left-100 0.5s linear forwards;
     -ms-animation: left-100 0.5s linear forwards;
@@ -75,6 +76,7 @@
 }
 
 .translate-down-landing-arrow {
+  transform: translate(50px, 30px);
   -webkit-animation: down-arrow 0.7s linear infinite;
    -moz-animation: down-arrow 0.7s linear infinite;
     -ms-animation: down-arrow 0.7s linear infinite;
@@ -84,25 +86,61 @@
 
 @-webkit-keyframes down-arrow {
   to {
-    transform: translate(50px,45px)
+    transform: translate(50px,40px);
+  }
+}
+
+@-moz-keyframes down-arrow {
+  to {
+    transform: translate(50px,40px);
+  }
+}
+
+@-ms-keyframes down-arrow {
+  to {
+    transform: translate(50px,40px);
+  }
+}
+
+@-o-keyframes down-arrow {
+  to {
+    transform: translate(50px,40px);
   }
 }
 
 @keyframes down-arrow{
   to {
-    transform: translate(50px,45px)
+    transform: translate(50px,40px);
   }
 }
 
 @-webkit-keyframes left-100 {
   to {
-    transform: translate(-50px,-53px)
+    transform: translate(-50px,-53px);
+  }
+}
+
+@-moz-keyframes left-100 {
+  to {
+    transform: translate(-50px,-53px);
+  }
+}
+
+@-ms-keyframes left-100 {
+  to {
+    transform: translate(-50px,-53px);
+  }
+}
+
+@-o-keyframes left-100 {
+  to {
+    transform: translate(-50px,-53px);
   }
 }
 
 @keyframes left-100 {
   to {
-    transform: translate(-50px,-53px)
+    transform: translate(-50px,-53px);
   }
 }
 
@@ -111,6 +149,25 @@
     stroke-dashoffset: 0;
   }
 }
+
+@-moz-keyframes offset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-ms-keyframes offset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-o-keyframes offset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 
 @keyframes offset {
   to {
@@ -127,33 +184,36 @@
 }
 
 .landing-logo svg{
-  width: 35% !important;
+  width: 70% !important;
   position: absolute;
   margin: auto;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  overflow: visible !important;
+  padding:0;
 }
 
 @media only screen and (min-width: 768px) {
     /* For desktop: */
     .landing-logo svg{
-      width: 25% !important;
+      width: 40% !important;
     }
 }
 
 @media only screen and (min-width: 1024px) {
     /* For desktop: */
     .landing-logo svg{
-      width: 15% !important;
+      width: 30% !important;
     }
 }
 
 #scroller {
   max-height: 200vh !important;
   height: 200vh !important;
+  top:0 !important;
+  left:0 !important;
+  width:100%;
 }
 
 #finish-landing {
@@ -162,6 +222,7 @@
   right: 0;
   margin: auto;
 }
+
 
 body {
     font-family: AvenirNext-DemiBold !important;

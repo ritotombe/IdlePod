@@ -9,8 +9,9 @@ export default class App extends Component {
   render() {
     return (
     <div>
-      <Scroller />
+
       <SVGInline className="landing-logo" svg={ IDLE_POD_ICON } />
+      <Scroller />
     </div>
     );
   }
