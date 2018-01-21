@@ -1,0 +1,267 @@
+
+
+.cls-1 {
+  fill: #fff;
+  stroke: #f15a24;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 6px;
+}
+
+.cls-21, .cls-22{
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cls-2 {
+  font-size: 72px;
+  font-family: 'Avenir Next';
+  font-weight: 600;
+}
+
+.cls-2, .cls-5, .cls-10, .cls-13, .cls-15 {
+  fill: #104055;
+}
+
+.cls-3 {
+  letter-spacing: -0.06em;
+}
+
+.cls-4 {
+  fill: #1f80aa;
+}
+
+.cls-6, .cls-8 {
+  fill: #a5ccdd;
+}
+
+.cls-6, .cls-8, .cls-10, .cls-13, .cls-15  {
+  font-size: 43.2px;
+}
+
+.cls-8, .cls-13 {
+  font-family: Avenir Next;
+  font-weight: 700;
+}
+
+.cls-21 {
+  stroke: #0c3040;
+  stroke-miterlimit: 10;
+  stroke-width: 5px;
+}
+
+.cls-22 {
+  stroke: #fff;
+  stroke-width: 10px;
+  fill:none;
+  width: 50%;
+
+}
+
+.line-animation{
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  -webkit-animation: offset 0.5s linear forwards;
+   -moz-animation: offset 0.5s linear forwards;
+    -ms-animation: offset 0.5s linear forwards;
+     -o-animation: offset 0.5s linear forwards;
+        animation: offset 0.5s linear forwards;
+}
+
+.translate-left-100 {
+  transform: translate(231.75px, -53px);
+  -webkit-animation: left-100 0.5s linear forwards;
+   -moz-animation: left-100 0.5s linear forwards;
+    -ms-animation: left-100 0.5s linear forwards;
+     -o-animation: left-100 0.5s linear forwards;
+        animation: left-100 0.5s linear forwards;
+}
+
+.translate-down-landing-arrow {
+  transform: translate(50px, 30px);
+  -webkit-animation: down-arrow 0.7s linear infinite;
+   -moz-animation: down-arrow 0.7s linear infinite;
+    -ms-animation: down-arrow 0.7s linear infinite;
+     -o-animation: down-arrow 0.7s linear infinite;
+        animation: down-arrow 0.7s linear infinite;
+}
+
+@-webkit-keyframes down-arrow {
+  to {
+    transform: translate(50px,40px);
+  }
+}
+
+@-moz-keyframes down-arrow {
+  to {
+    transform: translate(50px,40px);
+  }
+}
+
+@-ms-keyframes down-arrow {
+  to {
+    transform: translate(50px,40px);
+  }
+}
+
+@-o-keyframes down-arrow {
+  to {
+    transform: translate(50px,40px);
+  }
+}
+
+@keyframes down-arrow{
+  to {
+    transform: translate(50px,40px);
+  }
+}
+
+@-webkit-keyframes left-100 {
+  to {
+    transform: translate(-50px,-53px);
+  }
+}
+
+@-moz-keyframes left-100 {
+  to {
+    transform: translate(-50px,-53px);
+  }
+}
+
+@-ms-keyframes left-100 {
+  to {
+    transform: translate(-50px,-53px);
+  }
+}
+
+@-o-keyframes left-100 {
+  to {
+    transform: translate(-50px,-53px);
+  }
+}
+
+@keyframes left-100 {
+  to {
+    transform: translate(-50px,-53px);
+  }
+}
+
+@-webkit-keyframes offset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-moz-keyframes offset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-ms-keyframes offset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-o-keyframes offset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+@keyframes offset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.cls-15, .cls-21 {
+  fill: none;
+}
+
+.this-is-you, .this-is-your-pod, .cls-21, .cls-13, .definition{
+  opacity: 0;
+}
+
+.landing-logo svg{
+  width: 40% !important;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding:0;
+  overflow: visible !important;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .landing-logo svg{
+      width: 30% !important;
+    }
+    #finish-landing {
+      margin-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    /* For desktop: */
+    .landing-logo svg{
+      width: 20% !important;
+    }
+    #finish-landing {
+      margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    /* For desktop: */
+    .landing-logo svg{
+      width: 10% !important;
+    }
+    #finish-landing {
+      margin-bottom: 10px;
+    }
+}
+
+#scroller {
+  max-height: 200vh !important;
+  height: 200vh !important;
+  top:0 !important;
+  left:0 !important;
+  width:100%;
+}
+
+#finish-landing {
+  /* position: absolute; */
+  left:0;
+  right: 0;
+  bottom:0;
+  margin: auto;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+
+body {
+    font-family: Avenir Next !important;
+    background: #f1bf4e !important;
+    font-weight: 600;
+}
+
+.container,  .container>div, .container>div>div{
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar, .container>div::-webkit-scrollbar, .container>div>div::-webkit-scrollbar{
+   width: 0 !important
+ }
+
+ .container::-moz-scrollbar, .container>div::-moz-scrollbar, .container>div>div::-moz-scrollbar{
+  width: 0 !important
+}
+/*# sourceMappingURL=style.bundle.css.map*/
