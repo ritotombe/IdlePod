@@ -202,6 +202,9 @@
     .landing-logo svg{
       width: 30% !important;
     }
+    #finish-landing {
+      margin-bottom: 30px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -209,12 +212,18 @@
     .landing-logo svg{
       width: 20% !important;
     }
+    #finish-landing {
+      margin-bottom: 20px;
+    }
 }
 
 @media only screen and (min-width: 2560px) {
     /* For desktop: */
     .landing-logo svg{
       width: 10% !important;
+    }
+    #finish-landing {
+      margin-bottom: 10px;
     }
 }
 
@@ -232,7 +241,7 @@
   right: 0;
   bottom:0;
   margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   width: 100%;
 }
 
