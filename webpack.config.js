@@ -1,3 +1,6 @@
+const isProd = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase() == 'production';
+const webpack = require("webpack");
+
 module.exports = {
   entry: [
     './src/index.js'
@@ -7,7 +10,7 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devtool: 'source-map',
+  devtool: isProd ? 'cheap-module-source-map': 'eval',
   module: {
     loaders: [{
       exclude: /node_modules/,
@@ -23,5 +26,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './'
-  }
+  },
+  plugin: isProd ? [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin()
+  ] : []
 };
