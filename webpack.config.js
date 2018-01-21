@@ -8,8 +8,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var commonPlugin = [
   new HtmlWebpackPlugin({
     title: "IdlePod",
-    template: "index.html"
-    
+    template: "index.template.html",
+    filename: "index.html"
   }),
   new ExtractTextPlugin('style.bundle.css'),
   new webpack.DefinePlugin({
