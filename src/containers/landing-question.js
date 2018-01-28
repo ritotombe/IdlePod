@@ -47,7 +47,7 @@ class LandingQuestion extends Component {
     renderOptions (option){
         var {selectedOptions} = this.props
         var selected = []
-        if (selectedOptions[10]) {
+        if (selectedOptions && selectedOptions[10]) {
             selected = selectedOptions[10]
         }
         
