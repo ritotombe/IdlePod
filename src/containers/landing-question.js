@@ -62,7 +62,7 @@ class LandingQuestion extends Component {
                 {option.text} <br/>
                 
             </ToggleButton>,
-            <div className='checkbox-vertical btn extra'>
+            <div className='checkbox-vertical extra'>
             {(() =>{
                 if (option.extra) {
                     return (
