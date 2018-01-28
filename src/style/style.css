@@ -51,7 +51,7 @@
 }
 
 .cls-22 {
-  stroke: #fff;
+  stroke: #1f80aa;
   stroke-width: 10px;
   fill:none;
   width: 50%;
@@ -248,7 +248,9 @@
 
 body {
     font-family: Avenir Next !important;
-    background: #f1bf4e !important;
+    /* background: #f1bf4e !important; */
+    background: #d2e6ee !important;
+    /* background: #fff !important; */
     font-weight: 600;
 }
 
@@ -263,4 +265,67 @@ body {
 
  .container::-moz-scrollbar, .container>div::-moz-scrollbar, .container>div>div::-moz-scrollbar{
   width: 0 !important
+}
+
+.landing-question-container{
+  position: relative;
+  height: 100vh;
+}
+
+.landing-question-container label {
+  margin: 0 ;
+}
+
+.landing-question {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top : 10%;
+}
+
+.vertical-center{
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-group-wrap {
+  text-align: center;
+}
+
+div.btn-group {
+  margin: 0 auto; 
+  text-align: center;
+  width: 75%;
+  display: inline-block;
+}
+
+.btn-group-wrap .btn-group .btn {
+  width: 20% !important;
+}
+
+.prev-next-wrapper {
+  width: 75%;
+}
+
+.prev-next-wrapper a {
+  width: 50%;
+}
+
+.checkbox-vertical{
+  white-space: normal;
+  margin: 3px ;
+  border-radius: .25rem !important;
+}
+
+@media (hover:none), (hover:on-demand) {
+  
+}
+
+.hide {
+  display: none;
+}
+
+.extra{
+  /* margin: 0px !important; */
+  padding: 0;
 }
