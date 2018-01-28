@@ -327,6 +327,13 @@ div.btn-group {
   /* margin: 0px !important; */
   padding: 0;
   border: none;
+  font-weight: 400;
+  
+}
+
+.extra textarea{
+ padding: .375rem 1rem;
+ font-size: 80%;
 }
 
 .btn.nohover:hover {
