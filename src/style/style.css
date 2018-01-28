@@ -317,9 +317,7 @@ div.btn-group {
   border-radius: .25rem !important;
 }
 
-@media (hover:none), (hover:on-demand) {
-  
-}
+
 
 .hide {
   display: none;
@@ -329,4 +327,16 @@ div.btn-group {
   /* margin: 0px !important; */
   padding: 0;
   border: none;
+}
+
+.btn.nohover:hover {
+  color: #fff;
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+
+.btn-group-vertical>.btn.active, .btn-group-vertical>.btn:active, .btn-group-vertical>.btn:focus, .btn-group>.btn.active, .btn-group>.btn:active, .btn-group>.btn:focus {
+  color: #fff;
+  background-color: #014682;
+  border-color: #01315a
 }

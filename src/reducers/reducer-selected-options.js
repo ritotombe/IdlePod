@@ -9,8 +9,7 @@ export default function options (state = null, action) {
                 return selectedOptions
             } else {
                 return {...state, [questionNumber]: selectedOption}
-            }
-
+            }  
     }
     return state
 }
