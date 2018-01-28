@@ -49,6 +49,10 @@ class LandingQuestion extends Component {
         var selected = []
         if (selectedOptions) {
             selected = selectedOptions[10]
+        } else {
+            return (
+                <div>Loading..</div>
+            )
         }
         
         return [
