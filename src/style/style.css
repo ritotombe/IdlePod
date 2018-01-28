@@ -313,9 +313,19 @@ div.btn-group {
 
 .checkbox-vertical{
   white-space: normal;
-  margin: 3px !important;
+  margin: 3px ;
+  border-radius: .25rem !important;
+}
+
+@media (hover:none), (hover:on-demand) {
+  
 }
 
 .hide {
   display: none;
+}
+
+.extra{
+  /* margin: 0px !important; */
+  padding: 0;
 }

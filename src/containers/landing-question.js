@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-import { ToggleButtonGroup, ToggleButton } from 'react-bootstrap'
+import { ToggleButtonGroup, ToggleButton, Collapse } from 'react-bootstrap'
 import _ from 'lodash'
 
 import {selectQuestion, selectOption} from '../actions'
@@ -51,23 +51,27 @@ class LandingQuestion extends Component {
             selected = selectedOptions[10]
         }
         
-        return (
+        return [
             <ToggleButton key={option.number} bsClass='btn btn-primary checkbox-vertical' value={option.number}>
                 {option.text} <br/>
-                {(() =>{
-                    if (option.extra) {
-                        return (
-                            <div className= {selected.includes(option.number) ? '' : 'hide'}>
-                                <label><small>{option.extra}</small></label>
-                                <textarea className="form-control" id="extra">
-                                </textarea>
+                
+            </ToggleButton>,
+            <div className='checkbox-vertical btn extra'>
+            {(() =>{
+                if (option.extra) {
+                    return (
+                        <Collapse in= {selected.includes(option.number) ? true : false}>
+                            <div >
+                            <label><small>{option.extra}</small></label>
+                            <textarea className="form-control btn" id="extra" autoFocus="true">
+                            </textarea>
                             </div>
-                        )
-                    }
+                        </Collapse>
+                    )
+                }
                 })()}
-            </ToggleButton>
-             
-        )
+             </div>
+            ]
     }
     
     render(){
