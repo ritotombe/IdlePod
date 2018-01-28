@@ -4,8 +4,9 @@ import { withRouter, Link } from 'react-router-dom'
 import { ToggleButtonGroup, ToggleButton, Collapse } from 'react-bootstrap'
 import _ from 'lodash'
 
-import {selectQuestion, selectOption} from '../actions'
+import {selectQuestion, selectOption, updateSpecialAnswers} from '../actions'
 import question from '../components/question';
+import specialAnswer from '../reducers/reducer-special-answer';
 
 class LandingQuestion extends Component {
 
@@ -45,14 +46,19 @@ class LandingQuestion extends Component {
 
     //Number 10 Special Questions
     renderOptions (option){
-        var {selectedOptions} = this.props
+        var {selectedOptions, specialAnswer} = this.props
         var selected = []
+        var answer = ""
         if (selectedOptions && selectedOptions[10]) {
             selected = selectedOptions[10]
         }
+
+        if (specialAnswer && specialAnswer[option.number]){
+            answer = specialAnswer[option.number]
+        }
         
         return [
-            <ToggleButton key={option.number} bsClass='btn btn-primary checkbox-vertical' value={option.number}>
+            <ToggleButton key={option.number} bsClass='btn btn-primary nohover checkbox-vertical' value={option.number}>
                 {option.text} <br/>
                 
             </ToggleButton>,
@@ -63,7 +69,17 @@ class LandingQuestion extends Component {
                         <Collapse in= {selected.includes(option.number) ? true : false}>
                             <div >
                             <label><small>{option.extra}</small></label>
-                            <textarea className="form-control extra" id="extra" autoFocus="true">
+                            <textarea 
+                                onChange = {(event) => {
+                                    this.props.updateSpecialAnswers({
+                                        optionNum: option.number,
+                                        answer: event.target.value
+                                    })
+                                }} 
+                                className="form-control extra" 
+                                id="extra" 
+                                autoFocus="true"
+                                value={answer}>
                             </textarea>
                             <hr/>
                             </div>
@@ -175,8 +191,9 @@ class LandingQuestion extends Component {
 function mapStateToProps(state){
     return {
         selectedQuestion: state.activeQuestion,
-        selectedOptions: state.selectedOptions
+        selectedOptions: state.selectedOptions,
+        specialAnswer: state.specialAnswer
     }
 }
 
-export default connect(mapStateToProps, {selectQuestion, selectOption})(LandingQuestion)
+export default connect(mapStateToProps, {selectQuestion, selectOption, updateSpecialAnswers})(LandingQuestion)
