@@ -63,7 +63,7 @@ class LandingQuestion extends Component {
                         <Collapse in= {selected.includes(option.number) ? true : false}>
                             <div >
                             <label><small>{option.extra}</small></label>
-                            <textarea className="form-control btn" id="extra" autoFocus="true">
+                            <textarea className="form-control" id="extra" autoFocus="true">
                             </textarea>
                             </div>
                         </Collapse>
