@@ -12,6 +12,7 @@ class LandingQuestion extends Component {
     constructor(props) {
         super(props)
         this.updateDimensions = this.updateDimensions.bind(this)
+        this.renderOptions = this.renderOptions.bind(this)
     
         this.state = {
           width: window.innerWidth,
@@ -42,11 +43,30 @@ class LandingQuestion extends Component {
         window.removeEventListener("resize", this.updateDimensions)
     }
 
+    //Number 10 Special Questions
     renderOptions (option){
+        var {selectedOptions} = this.props
+        var selected = []
+        if (selectedOptions) {
+            selected = selectedOptions[10]
+        }
+        
         return (
-            <ToggleButton key={option.number} bsClass='checkbox col-sm-12' value={option.number}>
-                {option.text}
+            <ToggleButton key={option.number} bsClass='btn btn-primary checkbox-vertical' value={option.number}>
+                {option.text} <br/>
+                {(() =>{
+                    if (option.extra) {
+                        return (
+                            <div className= {selected.includes(option.number) ? '' : 'hide'}>
+                                <label><small>{option.extra}</small></label>
+                                <textarea className="form-control" id="extra">
+                                </textarea>
+                            </div>
+                        )
+                    }
+                })()}
             </ToggleButton>
+             
         )
     }
     
@@ -66,8 +86,8 @@ class LandingQuestion extends Component {
         }
 
         return (
-            <div className="landing-question vertical-center col-xs-12">
-                <div className='text-xl-center'><h1>{selectedQuestion.number}</h1></div>
+            <div className={selectedQuestion.number < 10 || this.state.width > 760  ? "landing-question vertical-center col-xs-12" : "landing-question col-xs-12"}>
+                <div className='text-xl-center'><h1>{selectedQuestion.number}.</h1></div>
                 <div className='text-xl-center'><h3>{selectedQuestion.text}</h3></div>
                 <div className="btn-group-wrap">
 
@@ -77,13 +97,12 @@ class LandingQuestion extends Component {
                             return (
                             
                                 <ToggleButtonGroup 
-                                    block = {this.state.width > 500 ? false : true}
-                                    vertical = {this.state.width > 500 ? false : true}
+                                    block = {this.state.width > 760 ? false : true}
+                                    vertical = {this.state.width > 760 ? false : true}
                                     type='radio'
                                     name='options' 
-                                    bsClass = {this.state.width > 500 ? " btn-group" : "btn-group"}
+                                    bsClass = {this.state.width > 760 ? " btn-group" : "btn-group"}
                                     onChange={values => {
-                                            this.forceUpdate()
                                             this.props.selectOption({
                                             selectedOption: values,
                                             questionNumber: selectedQuestion.number
@@ -111,27 +130,22 @@ class LandingQuestion extends Component {
                             )
                         } else {
                             var options = _.map(selectedQuestion.options, this.renderOptions)
-                            console.log(value);
                             
                             return (
-                                
                                 <ToggleButtonGroup 
                                     block 
                                     vertical 
                                     type='checkbox'
                                     name='options' 
                                     onChange={values => {
-                                                this.forceUpdate()
                                                 this.props.selectOption({
-                                                selectedOption: values,
-                                                questionNumber: selectedQuestion.number
-                                            })
-                                        }
+                                                    selectedOption: values,
+                                                    questionNumber: selectedQuestion.number
+                                                 })
+                                                 this.forceUpdate()
+                                            }
                                     }
                                     value={value}>
-                                    <small className='text-sm-center btn-block'>
-                                        You may choose more than one
-                                    </small>
                                         {options}
                                     </ToggleButtonGroup>
                             )

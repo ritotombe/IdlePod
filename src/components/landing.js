@@ -12,7 +12,7 @@ export default class Landing extends Component {
     <div className="inner">
       <SVGInline className="landing-logo" svg={ IDLE_POD_ICON } />
       <Scroller />
-      <Link to='/q/1' id="finish-landing" className="btn btn-default">
+      <Link to='/q/0' id="finish-landing" className="btn btn-default">
          check your procrastination  <br/>level here
       </Link>
     </div>
