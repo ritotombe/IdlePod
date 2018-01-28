@@ -59,25 +59,26 @@ export default function() {
                         number: 1
                     },
                     2: {
-                        text: "Clarify my vision",
-                        number: 2
-                    },
-                    3: {
                         text: "Break down my work (task and/or time) into smaller details",
                         extra: "Do you use any tool(s) to manage your work? Is there any particular technique?",
+                        number: 2
+                    }, 
+                    3: {
+                        text: "Change my environment",
+                        extra: "What environment do you typically change? (eg. work, school, friends, etc)",
                         number: 3
                     }, 
                     4: {
-                        text: "Change my environment",
-                        extra: "What environment do you typically change? (eg. work, school, friends, etc)",
+                        text: "Clarify my vision",
                         number: 4
-                    }, 
+                    },
                     5: {
                         text: "No more excuses, just do it",
                         number: 5
                     }, 
                     6: {
                         text: "Other ...",
+                        extra: "How?",
                         number: 6
                     }
                 }
