@@ -52,7 +52,7 @@ class LandingQuestion extends Component {
         window.removeEventListener("resize", this.updateDimensions)
     }
 
-    shake(message){
+    shake(){
         document.getElementById("q-group").classList.add("shake")
         this.setState({
             unfinishedClicked: true
@@ -63,8 +63,6 @@ class LandingQuestion extends Component {
                 unfinishedClicked: false
             })
         }, 500) 
-
-        document.getElementById("q-group").appendChild(<p>{message}</p>)
     }
 
     allFinished(){
@@ -265,23 +263,7 @@ class LandingQuestion extends Component {
                                 )
                             }
                         } else {
-                           
-                            if (!this.allFinished()){
-                                var missed = this.countUnfinished()
-                                var message = ""
-                                
-
-                                if (missed.length > 1){
-                                    message = `You missed these numbers: ${missed}`
-                                } else {
-                                    message = `You missed this number: ${missed}`
-                                }
-                                return (
-                                    <Link to={`/q/${parseInt(selectedQuestion.number)}`} className="btn disabled pull-md-right" onClick={() => this.shake(message)}>
-                                        Finish
-                                    </Link>
-                                )
-                            } else if (value){
+                            if (value){
                                 return (
                                     <Link to={`/q/${parseInt(selectedQuestion.number)+1}`} className="btn btn-default pull-md-right">
                                         Finish
