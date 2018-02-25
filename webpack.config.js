@@ -4,6 +4,7 @@ const isProd = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase() == 'pr
 const webpack = require("webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var JavaScriptObfuscator = require('webpack-obfuscator');
 
 var commonPlugin = [
   new HtmlWebpackPlugin({
@@ -15,6 +16,7 @@ var commonPlugin = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
   }),
+  
 ]
 
 var prodPlugin = [
@@ -24,7 +26,7 @@ var prodPlugin = [
 
 module.exports = {
   entry: [
-    './src/index.js'
+   './src/index.js'
   ],
   output: {
     path: __dirname,

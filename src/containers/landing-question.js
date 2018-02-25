@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import { ToggleButtonGroup, ToggleButton, Collapse } from 'react-bootstrap'
+import { Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 import _ from 'lodash'
 
 import {selectQuestion, selectOption, updateSpecialAnswers} from '../actions'
 import question from '../components/question';
 import specialAnswer from '../reducers/reducer-special-answer';
+import Alert from '../components/alert'
 
 class LandingQuestion extends Component {
 
@@ -14,9 +17,13 @@ class LandingQuestion extends Component {
         super(props)
         this.updateDimensions = this.updateDimensions.bind(this)
         this.renderOptions = this.renderOptions.bind(this)
+        this.shake = this.shake.bind(this)
+        this.allFinished = this.allFinished.bind(this)
+        this.countUnfinished = this.countUnfinished.bind(this)
     
         this.state = {
           width: window.innerWidth,
+          unfinishedClicked: false
         }
       }
 
@@ -30,6 +37,7 @@ class LandingQuestion extends Component {
         this.props.selectQuestion(num)
         window.addEventListener("resize", this.updateDimensions)
     }
+
     componentWillReceiveProps(nextProps){
         if (nextProps.num != this.props.num){
             this.props.selectQuestion(nextProps.num)
@@ -44,6 +52,53 @@ class LandingQuestion extends Component {
         window.removeEventListener("resize", this.updateDimensions)
     }
 
+    shake(){
+        document.getElementById("q-group").classList.add("shake")
+        this.setState({
+            unfinishedClicked: true
+        })
+        setTimeout(() => {
+            document.getElementById("q-group").classList.remove("shake")
+            this.setState({
+                unfinishedClicked: false
+            })
+        }, 500) 
+    }
+
+    allFinished(){
+        var {selectedOptions} = this.props
+
+        if (!selectedOptions) {
+            return false
+        }
+
+        for (var i in selectedOptions){
+            if (selectedOptions[i] == "0"){
+                return false
+            }
+        }
+
+        return true
+    }
+
+    countUnfinished(){
+        var {selectedOptions} = this.props
+
+        var missed = []
+
+        if (!selectedOptions) {
+            missed = ['1','2','3','4','5','6','7','8','9']
+        }
+
+        for (var i in selectedOptions){
+            if (selectedOptions[i] == "0"){
+                missed.push(i)
+            }
+        }
+
+        return missed
+    }
+
     //Number 10 Special Questions
     renderOptions (option){
         var {selectedOptions, specialAnswer} = this.props
@@ -52,6 +107,8 @@ class LandingQuestion extends Component {
         if (selectedOptions && selectedOptions[10]) {
             selected = selectedOptions[10]
         }
+
+        
 
         if (specialAnswer && specialAnswer[option.number]){
             answer = specialAnswer[option.number]
@@ -100,7 +157,16 @@ class LandingQuestion extends Component {
             )
         }
         
-        var value = []
+
+        // optional cofiguration
+        const options = {
+            position: 'bottom center',
+            timeout: 5000,
+            offset: '30px',
+            transition: 'scale'
+        }
+
+        var value = undefined
 
         if (selectedOptions) {
             value = selectedOptions[selectedQuestion.number]
@@ -113,7 +179,7 @@ class LandingQuestion extends Component {
                 <div className="btn-group-wrap">
 
                     {(() => {
-                        
+                        // Since number 10 is a special question, then the template has to be different
                         if (selectedQuestion.number < 10) {
                             return (
                             
@@ -123,6 +189,7 @@ class LandingQuestion extends Component {
                                     type='radio'
                                     name='options' 
                                     bsClass = {this.state.width > 760 ? " btn-group" : "btn-group"}
+                                    id = 'q-group'
                                     onChange={values => {
                                             this.props.selectOption({
                                             selectedOption: values,
@@ -147,7 +214,6 @@ class LandingQuestion extends Component {
                                             Very Often
                                         </ToggleButton>
                                     </ToggleButtonGroup>
-                                
                             )
                         } else {
                             var options = _.map(selectedQuestion.options, this.renderOptions)
@@ -158,6 +224,7 @@ class LandingQuestion extends Component {
                                     vertical 
                                     type='checkbox'
                                     name='options' 
+                                    id = 'q-group'
                                     onChange={values => {
                                                 this.props.selectOption({
                                                     selectedOption: values,
@@ -168,19 +235,49 @@ class LandingQuestion extends Component {
                                     }
                                     value={value}>
                                         {options}
-                                    </ToggleButtonGroup>
+                                </ToggleButtonGroup>
                             )
                         }
                     })()}
                 </div>
 
+               
+
                 <div className="prev-next-wrapper center-block">
                     <Link to={`/q/${parseInt(selectedQuestion.number)-1}`} className="btn btn-default">
                         ..Previous
                     </Link>
-                    <Link to={`/q/${parseInt(selectedQuestion.number)+1}`} className="btn btn-default pull-md-right">
-                        Next..
-                    </Link>
+                    {(()=>{
+                        if (selectedQuestion.number < 10){
+                            if (value){
+                                return (
+                                    <Link to={`/q/${parseInt(selectedQuestion.number)+1}`} className="btn btn-default pull-md-right">
+                                        Next..
+                                    </Link>
+                                )
+                            } else {
+                                return (
+                                    <Link to={`/q/${parseInt(selectedQuestion.number)}`} className="btn disabled pull-md-right"  onClick={() => this.shake()}>
+                                        Next..
+                                    </Link>
+                                )
+                            }
+                        } else {
+                            if (value){
+                                return (
+                                    <Link to={`/q/${parseInt(selectedQuestion.number)+1}`} className="btn btn-default pull-md-right">
+                                        Finish
+                                    </Link>
+                                )
+                            } else {
+                                return (
+                                    <Link to={`/q/${parseInt(selectedQuestion.number)}`} className="btn disabled pull-md-right" onClick={() => this.shake()}>
+                                        Finish
+                                    </Link>
+                                )
+                            }
+                        }
+                    })()}
                 </div>
             </div>
             
